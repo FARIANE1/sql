@@ -135,14 +135,14 @@ alter table Shopping_cart add constraint FK_Association_5 foreign key (customerN
 /*==============================================================*/
 /* Insertion                                                    */
 /*==============================================================*/
-insert into Customer values('omar fadili', '15 rue el irfan, temara', 'omar@gmail.com','GH23322JK','20022,32')
-insert into Customer values('khalil ziani', '20 rue massira, rabat', 'malili@gmail.com','HOOL499384','1000,2')
+insert into Customer values('omar fadili', '15 rue el irfan, temara', 'omar@gmail.com','GH23322JK','20022,32');
+insert into Customer values('khalil ziani', '20 rue massira, rabat', 'malili@gmail.com','HOOL499384','1000,2');
 select * from Customer
 
 /*******/
 
-insert into Administrator values('admin','admin@gmail.com')
-insert into Administrator values('imad','admin@gmail.com')
+insert into Administrator values('admin','admin@gmail.com');
+insert into Administrator values('imad','admin@gmail.com');
 select * from Administrator
 
 
@@ -150,16 +150,16 @@ select * from Administrator
 /* Suppression                                                  */
 /*==============================================================*/
 
-delete from Customer where email='omar@gmail.com'
-delete from Administartor where adminName='imad'
+delete from Customer where email='omar@gmail.com';
+delete from Administartor where adminName='imad';
 
 /*==============================================================*/
 /* Modification                                                 */
 /*==============================================================*/
 
-update Customer set customerName='Newbie' where email='omar@gmail.com'
+update Customer set customerName='Newbie' where email='omar@gmail.com';
 
-select * from Customer
+select * from Customer;
 
 
 
