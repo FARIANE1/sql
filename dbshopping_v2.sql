@@ -13,7 +13,7 @@ drop table if exists Admin;
 
 drop table if exists Customer;
 
-drop table if exists "Order";
+drop table if exists Ordere;
 
 drop table if exists Order_Details;
 
@@ -21,17 +21,17 @@ drop table if exists Shipping_Info;
 
 drop table if exists Shopping_cart;
 
-drop table if exists User;
+drop table if exists webUser;
 
 /*==============================================================*/
 /* Table : Admin                                                */
 /*==============================================================*/
 create table Admin
 (
-   userId               varchar(254) not null,
+   loginId               varchar(254) not null,
    adminName            varchar(254),
    email                varchar(254),
-   primary key (userId)
+   primary key (loginId)
 );
 
 /*==============================================================*/
@@ -40,7 +40,7 @@ create table Admin
 create table Customer
 (
    customerName         varchar(254) not null,
-   userId               varchar(254),
+       Id               varchar(254),
    address              varchar(254),
    email                varchar(254),
    creditCardinfo       varchar(254),
@@ -51,7 +51,7 @@ create table Customer
 /*==============================================================*/
 /* Table : "Order"                                              */
 /*==============================================================*/
-create table "Order"
+create table Ordere
 (
    orderId              int not null,
    dateCreated          varchar(254),
@@ -104,42 +104,25 @@ create table Shopping_cart
 /*==============================================================*/
 /* Table : User                                                 */
 /*==============================================================*/
-create table User
+create table webUser
 (
-   userId               varchar(254) not null,
+   loginId               varchar(254) not null,
    password             varchar(254),
    loginStatus          varchar(254),
    registerDate         datetime,
-   primary key (userId)
+   primary key (loginId)
 );
 
-alter table Admin add constraint FK_Generalisation_2 foreign key (userId)
-      references User (userId) on delete restrict on update restrict;
-
-alter table Customer add constraint FK_Generalisation_1 foreign key (userId)
-      references User (userId) on delete restrict on update restrict;
-
-alter table "Order" add constraint FK_Association_2 foreign key (customerName)
-      references Customer (customerName) on delete restrict on update restrict;
-
-alter table "Order" add constraint FK_Association_3 foreign key (Shi_shippingId)
-      references Shipping_Info (shippingId) on delete restrict on update restrict;
-
-alter table "Order" add constraint FK_Association_4 foreign key (orderId)
-      references Order_Details (orderId) on delete restrict on update restrict;
-
-alter table Shopping_cart add constraint FK_Association_1 foreign key (customerName)
-      references Customer (customerName) on delete restrict on update restrict;
-
+sss
 
 
 /*=========================================================================================*/
 /* Création d'un utilisateur avec un accès d’ajouter de nouvelles entrées dans les tableaux*/
 /*=========================================================================================*/
 
-create user 'non-root'@'localhost';
-alter user 'non-root'@'localhost' IDENTIFIED BY 'myhost';
-grant insert on dbshopping.* to 'non-root'@'localhost';
+create user 'fati'@'localhost' IDENTIFIED BY 'azerty' ;
+
+grant insert on dbshopping.* to 'fati'@'localhost';
 
 
 
@@ -147,15 +130,15 @@ grant insert on dbshopping.* to 'non-root'@'localhost';
 /*==============================================================*/
 /* Insertion                                                    */
 /*==============================================================*/
-insert into Customer values('omar fadili', '15 rue el irfan, temara', 'omar@gmail.com','GH23322JK','20022,32');
-insert into Customer values('khalil ziani', '20 rue massira, rabat', 'malili@gmail.com','HOOL499384','1000,2');
-select * from Customer
+insert into Customer values('omar fadili', '15 rue el irfan, temara', 'omar@gmail.com','GH23322JK','20022');
+insert into Customer values('khalil ziani', '20 rue massira, rabat', 'malili@gmail.com','HOOL499384','1000');
+select * from Customer;
 
 /*******/
 
-insert into Administrator values('admin','admin@gmail.com');
-insert into Administrator values('imad','admin@gmail.com');
-select * from Administrator
+insert into admin  values( 'fati','admin','admin@gmail.com');
+insert into admin values( 'arian','imad','admin@gmail.com');
+select * from admin;
 
 
 /*==============================================================*/
@@ -169,7 +152,7 @@ delete from Administartor where adminName='imad';
 /* Modification                                                 */
 /*==============================================================*/
 
-update Customer set customerName='Newbie' where email='omar@gmail.com';
+update Customer set customerName='khalil zianis' where email='omar@gmail.com';
 
 select * from Customer;
 
