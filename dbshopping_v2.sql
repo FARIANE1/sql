@@ -1,13 +1,13 @@
-/*==============================================================*/
+/*==============================================================/
 /* Nom de SGBD :  MySQL 5.0                                     */
 /* Date de création :  26/04/2020 13:13:24                      */
 /*==============================================================*/
 
-create database dbshopping;
-use dbshopping;
+create database Dshopping;
+use Dshopping;
 
 
-/*création des tables de la base de données*/
+/création des tables de la base de données/
 
 drop table if exists Admin;
 
@@ -23,7 +23,7 @@ drop table if exists Shopping_cart;
 
 drop table if exists webUser;
 
-/*==============================================================*/
+/*==============================================================/
 /* Table : Admin                                                */
 /*==============================================================*/
 create table Admin
@@ -34,13 +34,13 @@ create table Admin
    primary key (loginId)
 );
 
-/*==============================================================*/
+/*==============================================================/
 /* Table : Customer                                             */
 /*==============================================================*/
 create table Customer
 (
    customerName         varchar(254) not null,
-       Id               varchar(254),
+   Id               varchar(254),
    address              varchar(254),
    email                varchar(254),
    creditCardinfo       varchar(254),
@@ -48,7 +48,7 @@ create table Customer
    primary key (customerName)
 );
 
-/*==============================================================*/
+/*==============================================================/
 /* Table : "Order"                                              */
 /*==============================================================*/
 create table Ordere
@@ -64,7 +64,7 @@ create table Ordere
    primary key (orderId)
 );
 
-/*==============================================================*/
+/*==============================================================/
 /* Table : Order_Details                                        */
 /*==============================================================*/
 create table Order_Details
@@ -101,8 +101,8 @@ create table Shopping_cart
    primary key (customerName)
 );
 
-/*==============================================================*/
-/* Table : User                                                 */
+/*==============================================================/
+/* Table : webUser                                                 */
 /*==============================================================*/
 create table webUser
 (
@@ -113,47 +113,44 @@ create table webUser
    primary key (loginId)
 );
 
-sss
 
 
-/*=========================================================================================*/
+/*=========================================================================================/
 /* Création d'un utilisateur avec un accès d’ajouter de nouvelles entrées dans les tableaux*/
 /*=========================================================================================*/
 
-create user 'fati'@'localhost' IDENTIFIED BY 'azerty' ;
-
-grant insert on dbshopping.* to 'fati'@'localhost';
-
+CREATE USER 'fati'@'localhost' IDENTIFIED BY 'azerty';
+grant insert on Dshopping.* to 'fati'@'localhost';
 
 
 
-/*==============================================================*/
+
+
+/*==============================================================/
 /* Insertion                                                    */
 /*==============================================================*/
-insert into Customer values('omar fadili', '15 rue el irfan, temara', 'omar@gmail.com','GH23322JK','20022');
-insert into Customer values('khalil ziani', '20 rue massira, rabat', 'malili@gmail.com','HOOL499384','1000');
+insert into Customer values('omar fadilie', '15 rue el irfan', 'temara', 'omar@gmail.com','GH23322JK','20022');
+insert into Customer values('khalil ziani', '20 rue massira', 'rabat', 'malili@gmail.com','HOOL499384','1000');
 select * from Customer;
 
-/*******/
+/***/
 
-insert into admin  values( 'fati','admin','admin@gmail.com');
-insert into admin values( 'arian','imad','admin@gmail.com');
+insert into admin values('fati','admin','admin@gmail.com');
+insert into admin values('arian','imad','admin@gmail.com');
 select * from admin;
 
 
-/*==============================================================*/
+/*==============================================================/
 /* Suppression                                                  */
 /*==============================================================*/
 
 delete from Customer where email='omar@gmail.com';
-delete from Administartor where adminName='imad';
+delete from Admin where adminName='imad';
 
-/*==============================================================*/
+/*==============================================================/
 /* Modification                                                 */
 /*==============================================================*/
 
-update Customer set customerName='khalil zianis' where email='omar@gmail.com';
+update Customer set customerName='khalil ziani' where email='omar@gmail.com';
 
 select * from Customer;
-
-
